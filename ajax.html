@@ -1,0 +1,352 @@
+<html>
+<head>
+<title>Promises In javascript</title>
+</head>
+<body>
+
+
+<div id="test">
+ <span class="txt">One</span>1
+ <span class="txt">222</span>
+ <span class="txt">3333</span>
+ <span class="txt">44444</span>
+ <div class="txt">360</div>
+ <div class="txt"> child </div>
+ <div class="txt"> child </div>
+ <div class="txt"> child </div>
+</div>
+
+
+
+<div id="data" onClick="getData()">Button</div>
+<div id="data" onClick="postData()">Post Data</div>
+
+<div id="data" onClick="getPropmises()">getPromises</div>
+<div id="datavar arrIndex = ["Ashok",'Raja','Hindi', 'Math']
+" onClick="postPropmises()">Post Data</div>
+<span id="results"></span>
+<script>
+for (var j = 0; j <= 5; j++) {
+	setTimeout(function() { 
+	console.log(j); 
+	}, 
+	j * 1000 );
+}
+
+
+var arrIndex = ["Ashok",'Raja','Hindi', 'Math']
+const direactName = arrIndex.indexOf('Raja')   
+if(direactName == 'Raja'){
+	console.log(direactName)
+}else{
+console.log(direactName)
+}
+	
+	
+const data = [
+  { Name: "Alex", Mobile: "3433095622", "row": 0 },
+  { Name: "John", Mobile: "3005095622", "row": 2 },
+  { Mobile: "3103695624", "row": 3 },
+  { Name: "Bell", "row": 4 },
+  { Name: "Robot", Mobile: "3433456622", "row": 5 },
+];
+nameid ="Bell"
+const findIndex = data.findIndex(val => val.Name == nameid);
+console.log(data[findIndex])
+
+
+var User = Object.assign([], data[findIndex] )
+	User.Name ="Ashok kumar"
+	Users = Object.assign([], data)
+	Users[findIndex] = User
+	console.log(Users, data )
+
+
+
+function isBell(person){
+	return person.Name == 'Bell'
+}
+//findIndexs = data.findIndex(item => item.Name == 'Bell')
+//findIndexs = data.findIndex(isBell)
+var fIndex = data[data.findIndex(isBell)]
+console.log(fIndex)
+
+
+
+for(let i =0; i< data.length; i++){
+	last = data[i].Nameer;
+	console.log()
+}
+
+function keyValue(arr,id){
+	const keyIndex = {};
+	for(let key in arr){
+		let setDefault = 'default'.split()
+		if(arr.hasOwnProperty(key)){
+				if(arr[key][id] == undefined){
+					[arr[key][id]] = setDefault;
+					console.log([arr[key][id]])
+					keyIndex[[arr[key][id]]] = arr[key]
+				}else{
+				keyIndex[arr[key][id]] = arr[key]
+			}
+		}
+	}
+	return console.log(keyIndex)
+}
+
+ keyValue(data, "Name")
+
+
+
+
+
+
+
+	let parent = document.getElementById('test');
+      	for(var i =0; i<parent.childNodes.length; i++){
+			if(parent.childNodes[i].className =='txt' ){
+					let removeSpace = parent.childNodes[i].innerHTML.trim();
+					if(removeSpace == 'child'){
+						parent.childNodes[i].innerHTML = '';
+						parent.childNodes[i].setAttribute('id','none')
+						break;
+					}
+			}
+		}
+		
+
+
+
+
+
+function checkProperty(arr){
+	const data1= [] 
+	//arr1 = arr.toLowerCase();
+	//console.log(arr1)
+	for( key in arr){
+		 Name = arr[key].Name
+		if(arr[key].row && arr[key].Mobile){
+			//console.log('data')
+			data1.push({row: arr[key].row,mobile:arr[key].Mobile})
+			
+			
+		}else{
+
+		}
+	}
+	return console.log(data1)
+}
+checkProperty(data)
+
+// ******************* check array is Objects *************
+function containObj(obj){
+	
+	for(i=0; i<obj.length; i++){
+		if(typeof obj[i] == 'object'){
+			return true
+		}
+	}
+	return false
+}
+console.log(containObj(data))
+// ******************* check array is objects *************
+  var x = 10; var y = 20;
+  var res = x + y;
+  
+var elem = document.getElementById('results')
+if( elem !== 'undefined' &&  elem !== null){
+	 document.getElementById('results').innerHTML = res
+}
+
+
+const tree ={
+	name:'Ashok',
+	children:[
+		{name:'Ashok2',
+		children:[]},
+		{name:'Ashok3',
+		children:[
+		{name:'Ashok children1',
+		children:[]},
+		{name:'Ashok children2',
+		children:[]}
+		]},
+	]
+}
+function recursivemenu(menu){
+	if(menu.children.length == 0){
+		return 
+	}
+	menu.children.forEach( child =>{
+	console.log(child)
+		recursivemenu(child)
+		})
+	
+	
+}
+recursivemenu(tree)
+
+arr = [1,2,3,4];
+
+function sumTotal(n){
+var total = 0
+	for(i=n.length-1; i>= 0; i--){
+		total += n[i]
+	}
+	return total
+}
+
+total = sumTotal(arr)
+
+function sumRecursive(n,total = 0){
+console.log(n)
+	if( i < 0){
+		return total
+}else{
+	sumRecursive(n - 1, total)
+	}
+}
+r1 = sumRecursive(3,0);
+console.log(r1)
+
+function countDown(n){
+	for(i=n.length-1; i> 0; i--){
+		console.log(n[i])
+	}
+}
+//countDown(arr);
+
+function Recursive(n){
+	if(n <= 0){
+		console.log('loop break')
+		return
+	}
+	
+	Recursive(n-1)
+}
+r = Recursive(9)
+//console.log(r)
+
+
+let nestedArray = [
+    [
+        "salmon",
+        "halibut",
+    ],
+    [
+        "coral",
+        "reef",
+    ]
+];
+
+for(i=0; i<nestedArray.length; i++){
+	for(j=0; j<nestedArray.length; j++){
+		console.log(nestedArray[i][j])
+	}
+}
+
+arr.splice(3,2,'Ashok')
+
+
+console.log(arr)
+var user = {
+	'a': [
+		{
+			'b': {
+				'c': 3
+			}
+		}
+	]
+};
+	
+	
+  
+	
+ function deepLink(str){
+	var copy = {};
+		for(key in str){
+			if(typeof str[key] == 'object' && str[key] !== null){
+			
+				copy[key] = deepLink(str[key])
+				console.log(copy[key])
+				
+			}else{
+				copy[key] = str
+			}
+		}
+	return copy  
+ }
+ k = deepLink(user);
+	k.a[0].b.c =10
+ console.log(k.a[0].b.c,user);
+ 
+ 
+ 
+const getSendRequest = (method,url,data) => {	
+	var http =  new XMLHttpRequest();
+	http.open(method,url);
+	http.responseType = 'json';
+	http.onload = () =>{
+		//const data = JSON.parse(http.response);
+		const data = http.response
+		console.log(data)
+	}
+	http.send()
+}
+
+const getData = () =>{
+getSendRequest('GET','http://jsonplaceholder.typicode.com/posts')
+}
+const postData = () =>{
+getSendRequest('POST','https://reqres.in/api/users',{
+    "name": "Ashok--------------",
+    "job": "leader"
+})
+}
+
+//how to use same in promises
+
+const getSendRequestPromises = (method,url,data) => {
+	const Promises = new Promise((resolve,reject)=>{
+	var http =  new XMLHttpRequest();
+	http.open(method,url);
+		if(data){
+			http.setRequestHeader('Content-Type' , 'application/json');
+			}
+	http.responseType = 'json'; 
+	
+	http.onload = () =>{
+		if(http.status >= 400){
+			resolve("Something went wrong ")
+		}else{
+			resolve(http.response)
+		}
+	}
+	
+	//http.send()
+	http.send(JSON.stringify(data))
+	
+	
+	})
+	return Promises
+	
+}
+const getPropmises = () =>{
+	getSendRequestPromises('GET','http://jsonplaceholder.typicode.com/posts')
+	.then(response=> response).then(result=> console.log(result))
+	.catch(error => console.log(error))
+}
+
+const postPropmises = () =>{
+	getSendRequestPromises('POST','https://reqres.in/api/registersssss', {
+     "email": "eve.holt@reqres.in",
+    "password": "pistol"
+}).then(response=> response).then(result=> console.log(result))
+	.catch(error => console.log(error))
+}
+
+
+</script>
+</body>
+</html>
