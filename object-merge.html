@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>Promises In javascript</title>
+</head>
+<body>
+
+<div id="data" onClick="getData()">Button</div>
+<div id="data" onClick="postData()">Post Data</div>
+
+<div id="data" onClick="getPropmises()">getPromises</div>
+<div id="data" onClick="postPropmises()">Post Data</div>
+<script>
+let obj1 = { firstName: 'John', lastName: 'Doe', email: 'johnydoe1@domain.com' };
+
+let obj2 = { email: 'john.doe@domain.com', phone: '012–345–6789' };
+
+let obj3 = { city: 'Salt Lake City', state: 'Utah' }
+	function merges(...arr){
+		return arr.reduce((acc,curr)=>{
+			
+				for( key in curr){
+					
+					acc[key] =  curr[key]
+				}
+				return acc
+			
+		},{})
+	}
+let newObj = merges(obj1, obj2, obj3);
+
+function merge (...argument){
+	const copy = {};
+	const merger  = (obj) => {
+		for(const key in obj){
+		if(obj.hasOwnProperty(key)){
+			copy[key] = obj[key]
+			}
+		}
+	}
+	for(i=0; i<argument.length; i++){
+			merger(argument[i])
+	}
+	return copy
+}
+let newObj1 = merge(obj1, obj2, obj3);
+console.log(newObj1)
+//**************************CREATING UNIQUE, MERGED ARRAYS USING JAVASCRIPT'S SET (AND MORE) *************
+const uniqueArr = [1,2,3,4,5,6];
+const uniqueArr1 = [1,3,4,7,8,9];
+
+	function uniqueMerge(arr,arr1){
+		
+		for(i=0;i<arr.length; i++){
+			if(!arr1.includes(arr[i])){
+				console.log(arr[i])
+			}
+		}
+	}
+v = uniqueMerge(uniqueArr,uniqueArr1)
+console.log(v)
+
+﻿let combinedArr = [];
+uniqueArr.forEach(value=>{
+	if(!uniqueArr1.includes(value)){
+		combinedArr.push(value)
+	}
+})
+console.log(combinedArr);
+
+var columns = ["Date", "Number", "Size", "Location", "Age"];
+var rows = ["2001", "5", "Big", "Sydney", "25"];
+
+	var results = rows.reduce(function(result,field,index){
+			result[columns[index]] = field;
+		return result
+	
+	},{})
+
+//console.log(results)
+console.log(":::")
+function copyMerge(copy, arr){
+	 for(key in arr){
+		if(arr.hasOwnProperty(key)){
+			copy[key] = arr[key]
+		}
+	 }
+	return copy	 
+}
+
+copys = copyMerge(obj1, obj2);
+console.log(":::",copys)
+	
+//console.log(newObj)
+</script>
+</body>
+</html>

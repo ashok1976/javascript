@@ -1,0 +1,170 @@
+<html
+<head>
+<title>Promises In javascript</title>
+</head>
+<body>
+
+<div id="result"></div>
+<div id="data"></div>
+<script>
+let cars =[
+	{"color": "purple","type": "minivan","registration": new Date('2017-01-03'),"capacity": 7},
+	{"color": "blue","type": "station wagon","registration": new Date('2018-03-03'),"capacity": 5},
+]
+
+	element = cars.map(val=> `<div onclick="addProduct(${val.capacity})">${val.color}</div>`)
+	document.getElementById('result').innerHTML = element
+	function addProduct(product){
+		arrIndex = {};
+		copy = [...cars]
+		const index = cars.find(val => val.capacity === product);
+		found = false
+		if(index){
+			found =true
+			updated = {}
+			units = updated[index["color"]]
+			}else{
+			copy.push(index)
+			}
+	}
+		
+		
+	let cities = [
+    {name: 'Los Angeles', population: 3792621},
+    {name: 'New York', population: 8175133},
+    {name: 'Chicago', population: 2695598},
+    {name: 'Houston', population: 2099451},
+    {name: 'Philadelphia', population: 1526006}
+];
+	
+		let bigCities = [];
+			for(i=0;i<cities.length; i++){
+			if(cities[i].population > 2099451){
+				bigCities.push(cities[i])
+			}
+		}
+		//console.log(bigCities)
+		
+var filter = {address: 'England',name: 'Mark'};
+var users = [
+	{name: 'John',email: 'johnson@mail.com',age: 25,address: 'USA'},
+	{name: 'Tom',email: 'tom@mail.com',age: 35,address: 'England'},
+	{name: 'Mark',email: 'mark@mail.com',age: 28,address: 'England'}
+];
+users  = users.filter((val)=> {
+	for(const key in val){
+		if(val[key] === undefined  || val[key] !== val[key]){
+			return false
+		}
+		 return true;
+	}
+});
+
+	
+var studentDetails = [
+		{firstName: "John", subject: ['MySQL', 'MongoDB']},
+		{firstName: "David", subject: ['Java', 'C']}
+   ];
+	updateThisObject = {   firstName: "Bob", subjects: ['JavaScript']   };		
+	function updatedObject(studentObject,updateObj){
+				for(i=0; i<studentDetails.length; i++){
+					if(updateObj.subject === studentDetails[i].subject){
+						studentDetails[i] = updateObj;
+						return
+					}
+				}
+				studentObject.push(updateObj)
+		}
+		updatedObject(studentDetails,updateThisObject)
+		function update(obj){
+			for(i=0; i<obj.length; i++){
+				for(key in obj){
+					val = obj[i][key]
+					if(typeof val === 'object'){
+						update[obj[i]]
+					}
+				}
+			}
+		}
+//*************************** exixting object ************************		
+		function update(arr,product){
+			 var result = "Doesn't exist";
+			const index = users.find(val => val == product);
+ 		 	for(i=0; i<arr.length; i++){
+				if(arr[i].age === product){
+						result = "Exist";
+						break
+						}
+					}
+				return result
+			}
+			obj = { name: 'John',email: 'johnson@mail.com',age:233,address: 'USA'}
+			update(users,obj)
+//*************************** exixting object ************************
+			const arr = [
+				{ id: 1, username: 'fred' }, 
+				{ id: 2, username: 'bill' }, 
+				{ id: 3, username: 'ted' }
+			];
+			
+			function objectUpdate(arr,value){
+				const {length} = arr;
+				const id = length+1; 
+				//var id = arr.length + 1;
+				console.log(id)
+				found = arr.some(el => el.username == value);
+				if(!found){
+					arr.push({id, username:value})
+				}
+				return console.log(arr)
+				
+			}
+	    	objectUpdate(arr,'fred');
+			
+//*************************** exixting object ************************	
+	function objecUpdated (name){
+		const id = arr.length + 1;
+		const exixting = arr.filter(val => val.username === name)
+		if(exixting.length ==0){
+			arr.push({id, username:name})
+		}
+	}
+	c = objecUpdated ('bill');
+	//console.log(c)
+//*************************** exixting object ************************	
+	let myArray = [
+  {id: 0, name: "Jhon",units:0,age:10},
+  {id: 1, name: "Sara",units:0,age:11},
+  {id: 2, name: "Domnic",units:0,age:12},
+  {id: 3, name: "Bravo",units:0,age:15}
+]
+	const products = []
+	html = '';
+	 myArray.forEach((ele,index)=>{
+		const name = ele.name
+		html +=`<div onclick="ObjecIndex(${ele.age})">${ele.name} ${ele.units} ${ele.age}</div>`
+	 })
+	 document.getElementById('data').innerHTML = html
+	function ObjecIndex (product){
+	debugger
+	const exixting = myArray.find(val => val.age == product)
+	console.log("Before update", exixting )
+		copy = [...products];
+		flag = true; 
+		if(exixting){
+			flag = false
+			exixting.units += 1;
+			
+		}else{
+			copy.push(exixting)
+		}
+	console.log(copy)
+	}
+	console.log(products)
+
+	
+
+	//https://www.tutorialspoint.com/combine-array-of-objects-in-javascript	
+</script>
+</body>
+</html>

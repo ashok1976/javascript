@@ -1,0 +1,113 @@
+<html>
+<head>
+	<title>Time</title>
+
+</head>
+<body>
+
+<div id="data"></div>
+<script>
+ arr =  [1,2,3,0,3,0,0,4,5,6,0,7,8,0];
+ var indexNumber = 'India'.split('');
+	objApproach = {
+		1:{id : 10},
+		3:{id : 30},
+		2:{id : 20}
+	}
+	const newObj  = {...objApproach}
+//	newObj[id] = objApproach;
+	//return newObj
+	console.log(newObj[id])
+		
+ 
+ console.log(objApproach)
+ 
+ 
+ let index = indexNumber.findIndex(item => item.toLowerCase().indexOf('a') > -1)
+// console.log(index)
+const posts = [
+	{
+		"code":"DFKJdodfi",
+		"caption":"Dunno Dog'",
+		"likes":42,
+		"id":"328943249723",
+		"display_src":"https://i.ytimg.com/vi/uFTcXaTezyA/hqdefault.jpg"
+	},
+	{
+		"code":"BAIDfidslkaf",
+		"caption":"Doggin' Around",
+		"likes":40,
+		"id":"2190828475324",
+		"display_src":"https://i.ytimg.com/vi/uFTcXaTezyA/hqdefault.jpg"
+	},
+	{
+		"code":"BAAJqdslkaf",
+		"caption":"Strait Doggin'",
+		"likes":50,
+		"id":"2190823079324",
+		"display_src":"https://i.ytimg.com/vi/uFTcXaTezyA/hqdefault.jpg"
+	}
+]
+ 
+ const post = posts.findIndex(post => {
+	//console.log(post)
+	if(post.code === 'BAAJqdslkaf'){
+	return true
+	}else{
+	return false
+	}
+ })
+console.log(post)
+obj = [
+		{id:101, name: 'ABC Inc',credit: 100},
+		{id:102, name: 'ACME Corp',credit:200},
+		{id:102, name: 'ACME Corp',credit:200},
+		{id:103, name: 'IoT AG',credit: 300}
+]
+function removeDuplicate(arr){
+	listIndex = {};
+	for(key in arr){
+		//console.log(arr[key]["id"])
+		console.log(listIndex[arr[key]])
+		listIndex[arr[key]["id"]] = arr[key]
+		console.log(listIndex[arr[key]["id"]])
+	}
+	
+	return listIndex 
+}
+v = removeDuplicate(obj) 
+console.log(v)
+	findArray = [2,3,5,6,8,7,5,4]
+	find = findArray.findIndex(function(val){ return val >=5 }) //console.log(find);
+	finds = obj.find(val => val.credit >= 200)
+	filter = findArray.filter(val =>  val >= 5 ) //console.log(finds);
+	
+	let ranks = [1, 5, 7, 8, 10, 7];
+	index = ranks.findIndex((rank, index) => rank === 7 && index > 2)
+	console.log(index)
+
+newArray = [];
+arrN = [];
+for( i=0; i<arr.length; i++){
+	if(arr[i] == 0){
+		newArray.push(arr[i])
+	}else{
+		arrN.push(arr[i])
+	}
+}
+ n = arrN.concat(newArray) //console.log(n)
+
+newArr = [];
+for(i=0; i<arr.length; i++){
+	if(arr.indexOf(arr[i]) == i){
+			newArr.push(arr[i])
+	}
+}
+newArr.sort((a,b)=> a > b ? 1 : -1) //console.log(newArr)
+
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Inter Questions</title>
+</head>
+<body>
+
+<div id="data"></div>
+<script>
+
+	const Array = [
+  { Name: "Alex", Mobile: "3433095622", "row": 0 },
+  { Name: "John", Mobile: "3005095622", "row": 2 },
+  { Mobile: "3103695624", "row": 3 },
+  { Name: "Bell", "row": 4 },
+  { Name: "Robot", Mobile: "3433456622", "row": 5 },
+];
+
+	function replaceObject(str,val){
+		//var user;
+		const findIndex = str.findIndex(item=>item.Name ===  val)
+		if(findIndex){
+			var updated = {}
+			updated[str[findIndex]].Name =  val;
+			console.log(updated[str[findIndex]])
+		}
+		return str
+		
+		
+	}
+const v = replaceObject(Array,'Bell');
+console.log(v)
+</script>
+
+</body>
+
+</html>

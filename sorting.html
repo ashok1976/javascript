@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Inter Questions</title>
+</head>
+<body>
+
+<div id="data"></div>
+<script>
+
+ var employees=[
+	{name:"George", age:32, retiredate:"March 12, 2014"},
+	{name:"Edward", age:17, retiredate:"June 2, 2023"},
+	{name:"Christine", age:58, retiredate:"December 20, 2036"},
+	{name:"Sarah", age:62, retiredate:"April 30, 2020"}
+]
+
+ function sortByProperty(property){
+	   return function(a,b){  
+		if(a[property] > b[property]){
+			return 1
+		}else if(a[property] < b[property]){
+			return -1
+		}else{
+			
+				return 0
+			}
+		
+	}
+	
+ }
+keys = employees.sort(sortByProperty("name"))
+console.log(keys)
+function SortBykey(str){
+	output = [];
+	for(key in str){
+		output.push([key, str[key]])
+	}
+	return output.sort();
+
+}
+sortKey = SortBykey(employees)
+//console.log(sortKey)
+
+</script>
+
+</body>
+
+</html>

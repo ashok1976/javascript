@@ -1,0 +1,280 @@
+<html>
+<head>
+<title>Promises In javascript</title>
+</head>
+<body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<ul id="data4"></ul>
+<ul id="data"></ul>
+<ul id="data1"></ul>
+<ul id="data3"></ul>
+
+<script
+>
+const chainPromise = new Promise((resolve,reject)=> {
+	setTimeout(function(){
+		resolve(100)
+	},1000)
+	
+})
+
+chainPromise.then(res =>{ 
+console.log(" First Then"+ res);
+ return res * 2})
+.then(res => { 
+console.log("Second Then", res);
+return res * 2})
+.then(res =>{
+console.log("Second Then", res);
+return res * 4
+})
+
+const chainPromises = (x) => {
+	return new Promise ((resolve, reject)=>{
+		setTimeout(()=>{
+			resolve(x);
+		},3000)
+	})
+}
+
+chainPromises(5).then(response => {
+	console.log("First Callback "+ response )
+	return response * 2
+}).then(response => {
+	console.log("Second Callback "+ response)
+	return response * 10
+}).then(response => {
+	console.log("Third Callback "+ response)
+	return response * 20
+})
+
+
+
+
+//============ Promise.all =============
+
+const urls = [
+			"http://jsonplaceholder.typicode.com/users/1",
+			"http://jsonplaceholder.typicode.com/users/2",
+			"http://jsonplaceholder.typicode.com/users/3",
+			"http://jsonplaceholder.typicode.com/users/4",
+			"http://jsonplaceholder.typicode.com/users/5",
+			"http://jsonplaceholder.typicode.com/users/6",
+			"http://jsonplaceholder.typicode.com/users/7",
+			"http://jsonplaceholder.typicode.com/users/8",
+			"http://jsonplaceholder.typicode.com/users/9",
+			"http://jsonplaceholder.typicode.com/users/10",
+			//"http://jsonplaceholder.typicode.com/users/11"
+	]
+	const requests  = urls.map(url => fetch(url))
+	Promise.all(requests).then(response => {return response})
+	.then(responses => Promise.all(responses.map(r => r.json())))
+  // all JSON answers are parsed: "users" is the array of them
+  .then(users =>{
+		html = '';
+		users.forEach(user => {
+		html  += `<li>${user.email}</li>`
+		 });
+		 document.getElementById('data').innerHTML = html
+  }).catch(error => 
+	console.log(error)
+	)
+
+
+const fetchGithubInfo  = async (url) =>{
+	const info = await fetch(url);
+	return info;
+	}
+
+
+const fetchUserInfo = (numbers) =>{
+	const requests = numbers.map( val => {
+		var url = `http://jsonplaceholder.typicode.com/users/${val}`;
+		return fetchGithubInfo(url)
+		.then(res =>{ return res})
+	})
+	return Promise.all(requests)
+}
+fetchUserInfo([1,2,4,5,6,7,8,9,10]).then(res => Promise.all(res.map(r => r.json())))
+ .then(users => {console.log(users)
+	html = '';
+		users.forEach(user => {
+		html  += `<li>${user.email}</li>`
+		 });
+		 document.getElementById('data1').innerHTML = html
+ 
+ })
+  const fetchAll = async(url) => {
+	fetchData = await fetch(url);
+	return fetchData
+ }
+ const fetchAllData = (arr) => {
+		const requests = arr.map(name =>{
+			var url =`https://api.github.com/users/${name}`;
+			return fetchAll(url).then(response =>{ return response})
+		});
+		return Promise.all(requests)
+ }
+
+ fetchAllData(["sindresorhus","yyx990803","octocat","user"])
+ .then(result =>{
+		return Promise.all(result.map(res => res.json()))
+ }).then(users =>{
+		html = '';
+		users.forEach(user => {
+		html  += `<li>${user.name}</li>`
+		 });
+	document.getElementById('data3').innerHTML = html
+	}).catch(err => {  const message = new Error(err)
+		console.log(message)
+	})
+ 
+//============ Promise.race  ============
+ /*
+const fetchRace = async(url) => {
+	fetchData = await fetch(url);
+	return fetchData
+ }
+ const fetchRaceData = () => {
+		const requests = arr.map(name =>{
+			var url =`https://api.github.com/users/${name}`;
+			return fetchRace(url).then(response =>{ return response})
+		});
+		return Promise;
+ }
+
+ Promise.race([fetchRaceData("sindresorhus",'2')])
+ .then(result =>{
+ console.log(result)
+		//return Promise.race(result.map(res => res.json()))
+ }) 
+	*/
+	isMomHappy  = true ;
+	myPromise = ()=>{
+		var willIGetNewPhone  =  new Promise((resolve,reject)=>{
+			if(isMomHappy){
+			var phone = {
+					brand: 'Samsung',
+					color: 'black'
+				};
+			resolve(phone)
+			}else{
+				var reason = new Error('mom is not happy');
+				reject(reason)
+			}
+		})
+		return willIGetNewPhone
+	}
+	
+	/*
+	const showOff = (phone) => {
+		return new Promise((resolve,reject)=>{
+		    var message = 'Hey friend, I have a new ' + phone.color  +" " + phone.brand;
+			resolve(message)
+		})
+	}
+	*/
+	
+	const showOff = (phone) =>{
+			    var message = 'Hey friend, I have a new ' + phone.color  +" " + phone.brand;
+				return Promise.resolve(message)
+
+	}
+
+myPromise().then(showOff).then( response => console.log(response)).catch(error=>console.log(error))
+
+function fetchPromise(url) {
+      return new Promise((resolve, reject) => {
+        let request = new XMLHttpRequest();
+         request.open('GET', url);
+         request.onload = function() {
+            if (request.status === 200) {
+                 resolve(request.responseText);
+            }else {
+              reject(new Error('request failed!'));
+            }
+        };
+      request.send();
+    });
+}
+ 
+fetchPromise('http://jsonplaceholder.typicode.com/posts/')
+    .then(response => {
+        let data = JSON.parse(response);
+        return data
+    })
+    .then(response => {
+        console.log(response);
+    })
+    
+
+
+	
+	
+	
+	
+	
+	
+	const promiseFunction  = new Promise((resolve, reject)=>{
+		
+		const add = (a, b) =>{
+			return a + b
+		
+		}
+		resolve(add(2,2))
+	
+	})
+	
+	promiseFunction.then(res=> console.log(res))
+	.catch(error => console.log(error))
+	
+	//console.log(promiseFunction)
+	function sortData(arr){
+		len = arr.length;
+		for(i=0; i<len; i++){
+			for(j=0; j<len; j++){
+				if(arr[i] < arr[j]){
+					//swap the value
+					tempData = arr[j];
+					arr[j] = arr[i]
+					arr[i] = tempData
+				}
+			}
+		}
+		return arr;
+	}
+	s = sortData([4,2,1,8,9,7,6,10,30,20])
+	//console.log(s);
+	var mArray = [0,0,3,5,5,6,6,6,5,2,0];
+	function countOfElement(arr,N){
+		countNumber = {};
+		
+		for(i=0; i<arr.length; i++){
+		 if(countNumber[arr[i]]){
+				countNumber[arr[i]]++
+			}else{
+			countNumber[arr[i]] = 1
+			}
+		}
+		return countNumber[N] || 0
+	}
+	
+	count= countOfElement(mArray,0)
+
+
+	function countOfNums(array, num) {
+		var count = 0
+		for(i=0; i< array.length; i++){
+				if(array[i] === num){
+					count++
+				}
+		}
+		return count
+	}
+	c = countOfNums(mArray,0);
+//	console.log(c)
+
+//===== Find the largest and smallest number in an unsorted array of integers =======
+ </script>
+</body>
+</html>

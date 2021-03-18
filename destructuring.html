@@ -1,0 +1,97 @@
+<html>
+<head>
+	<title>Time</title>
+
+</head>
+<body>
+
+<div id="data"></div>
+<script>
+function getList(){
+		return ["alpha", "beta", "gamma", "delta"] 
+	}
+
+	let [f,l,...rest] = getList();
+	//	console.log(rest[0])
+
+var marks = {x: 21, y: -34, z: 47 }; 
+//====================== ES5 +++++++++++++++
+var x = marks.x;
+var y = marks.y;
+var z = marks.z
+//console.log(x)
+
+//====================== ES5 +++++++++++++++;
+const planet = {
+  name: 'Hosnian Prime',
+  faction: 'New Republic',
+  weather: 'Temperate'
+};
+
+let {name,faction,weather} = planet;
+//console.log(weather)
+const planets = {
+  name: 'Hosnian Prime',
+  faction: 'New Republic',
+  weather: 'Temperate'
+};
+const {name:n, faction:fs, weather:w} = planets
+//console.log(fs)
+let person = {
+    name: "Sarah",
+    place: {
+        country: "Nigeria", 
+        city: "Lagos" }, 
+    friends : ["Annie", "Becky"]
+};
+
+
+let {name:e,place:{country:c,city:t}, friends:bar} = person;
+//console.log(t)
+
+let recipeMap = new Map([
+  ['cucumber', 500],
+  ['cucumber', 500],
+  ['tomatoes', 350],
+  ['onion',    50]
+]);
+
+for( key of recipeMap.keys()){
+//	console.log(key)
+}
+for( let key of recipeMap.entries()){
+	//console.log(key)
+}
+
+ob = Object.fromEntries(recipeMap)
+console.log(ob.tomatoes)
+
+
+
+	function getScore(){
+		return [10,20,30,40,50]
+	}
+	let scores   = getScore();
+	x = scores[0],	y = scores[1];
+	z = scores[2];
+	 [x,y,z] = getScore()
+	//console.log(x)
+function getProfile() {
+    return [
+        'John',
+        'Doe',
+        ['Red', 'Green', 'Blue']
+    ];
+}
+
+let [fitstname,lastName,[color,color1,color2]] = getProfile();
+//console.log(color1)
+let email = 'admin@example.com';
+check = email.includes('@')
+//console.log(!check)
+
+</script>
+
+</body>
+
+</html>

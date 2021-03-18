@@ -1,0 +1,229 @@
+<html
+<head>
+<title>Promises In javascript</title>
+</head>
+<body>
+
+<div id="length"></div>
+<div id="result"></div>
+<script>
+const ar = [4,5,6,7,8]
+function addArray(arr){
+		results = arr[0]
+		newArray = []
+	for(i=0;i < arr.length-1; i++){
+			newArray.push(arr[i] + results[i+1])
+	}
+	return newArray	
+}
+ su = addArray(ar);
+ console.log(su)
+	const cumulativeSum  = (arr) => {
+		var result = [arr[0]];
+		for(i=0; i<arr.length; i++){
+			result.push(arr[i]  + result[i+1])
+		}
+		return result
+	}
+ su1 = cumulativeSum(ar);
+ console.log(su1)
+let cars =[
+	{"color": "purple","type": "minivan","registration": new Date('2017-01-03'),"capacity": 7},
+	{"color": "blue","type": "station wagon","registration": new Date('2018-03-03'),"capacity": 5},
+]
+
+	element = cars.map(val=> `<div onclick="addProduct(${val.capacity})">${val.color}</div>`)
+	document.getElementById('result').innerHTML = element
+	function addProduct(product){
+		arrIndex = {};
+		copy = [...cars]
+		const index = cars.find(val => val.capacity === product);
+		found = false
+		if(index){
+			found =true
+			updated = {}
+			units = updated[index["color"]]
+			}else{
+			copy.push(index)
+			}
+	}
+		
+		
+	let cities = [
+    {name: 'Los Angeles', population: 3792621},
+    {name: 'New York', population: 8175133},
+    {name: 'Chicago', population: 2695598},
+    {name: 'Houston', population: 2099451},
+    {name: 'Philadelphia', population: 1526006}
+];
+	
+		let bigCities = [];
+			for(i=0;i<cities.length; i++){
+			if(cities[i].population > 2099451){
+				bigCities.push(cities[i])
+			}
+		}
+		//console.log(bigCities)
+		
+var filter = {address: 'England',name: 'Mark'};
+var users = [
+	{name: 'John',email: 'johnson@mail.com',age: 25,address: 'USA'},
+	{name: 'Tom',email: 'tom@mail.com',age: 35,address: 'England'},
+	{name: 'Mark',email: 'mark@mail.com',age: 28,address: 'England'}
+];
+users  = users.filter((val)=> {
+	for(const key in val){
+		if(val[key] === undefined  || val[key] !== val[key]){
+			return false
+		}
+		 return true;
+	}
+});
+
+	
+var studentDetails = [
+		{firstName: "John", subject: ['MySQL', 'MongoDB']},
+		{firstName: "David", subject: ['Java', 'C']}
+   ];
+	updateThisObject = {   firstName: "Bob", subjects: ['JavaScript']   };		
+	function updatedObject(studentObject,updateObj){
+				for(i=0; i<studentDetails.length; i++){
+					if(updateObj.subject === studentDetails[i].subject){
+						studentDetails[i] = updateObj;
+						return
+					}
+				}
+				studentObject.push(updateObj)
+		}
+		updatedObject(studentDetails,updateThisObject)
+		function update(obj){
+			for(i=0; i<obj.length; i++){
+				for(key in obj){
+					val = obj[i][key]
+					if(typeof val === 'object'){
+						update[obj[i]]
+					}
+				}
+			}
+		}
+//*************************** exixting object ************************		
+		function update(arr,product){
+			 var result = "Doesn't exist";
+			const index = users.find(val => val == product);
+ 		 	for(i=0; i<arr.length; i++){
+				if(arr[i].age === product){
+						result = "Exist";
+						break
+						}
+					}
+				return result
+			}
+			obj = { name: 'John',email: 'johnson@mail.com',age:233,address: 'USA'}
+			update(users,obj)
+//*************************** exixting object ************************
+			const arr = [
+				{ id: 1, username: 'fred' }, 
+				{ id: 2, username: 'bill' }, 
+				{ id: 3, username: 'ted' }
+			];
+			
+			function objectUpdate(arr,value){
+				const {length} = arr;
+				const id = length+1; 
+				//var id = arr.length + 1;
+				//console.log(id)
+				found = arr.some(el => el.username == value);
+				if(!found){
+					arr.push({id, username:value})
+				}
+				return arr
+				
+			}
+	    	const b =objectUpdate(arr,'fred');
+			//console.log(b)
+			
+//*************************** exixting object ************************	
+	function objecUpdated (name){
+		const id = arr.length + 1;
+		const exixting = arr.filter(val => val.username === name)
+		if(exixting.length ==0){
+			arr.push({id, username:name})
+		}
+	}
+	c = objecUpdated ('bill');
+	//console.log(c)
+//*************************** exixting object ************************	
+	let myArray = [
+  {id: 1, name: "Jhon",units:0},
+  {id: 2, name: "Sara",units:0},
+  {id: 3, name: "Domnic",units:0},
+  {id: 4, name: "Bravo",units:0}
+]
+element = myArray.map(val =>{
+
+		return `<p onclick="ObjecIndex(${val.id})">${val.name}</p>`
+		})
+		document.getElementById('result').innerHTML = element;
+
+cartData = []
+		
+	
+function ObjecIndex(id){
+	const exixting = myArray.find(val => val.id == id);
+	const objIndex = myArray.findIndex((obj => obj.id == id));
+
+	console.log(objIndex,exixting)
+		found = false
+		if(exixting){
+			found = true;
+			exixting['units'] +=1;
+		}else{
+			myArray.push(exixting)
+		}
+		const cartLength = myArray.reduce(( acc, current ) => acc + current.units,0)
+		document.getElementById('length').innerHTML = cartLength;
+		return myArray
+	}	
+//*************************** exixting object ************************	
+
+	function setObject(obj,key,value){
+		obj[key] = value
+		return obj
+	}
+	const setO = {city: 'Berlin', country: 'India'};
+	d = setObject(setO,'city','Ghaziabad')
+	console.log(d)
+	const set1 = {city: 'Berlin', country: 'India'};
+	function setPropertyNonDestructively(obj, key, value) {
+		const updatedObj  = {}
+		for(const [k,v] of Object.entries(obj)){
+				updatedObj[k] =  (k === key ? value : v);
+				console.log(v)
+		}
+		return updatedObj
+	}
+	e = setPropertyNonDestructively(set1, 'country', "USA")
+	console.log(e)
+	let userData = [
+		{id:1,name:"king"},
+		{id:2,name:"john"},
+		{id:3,name:"gowtham"}
+	]
+		//userData.forEach((val,index,arr) => console.log(val.name))
+		//userData.map((val,index,arr) => console.log(val.name))
+		for(const key of userData){
+		//	console.log(key.name)
+		}
+	
+
+/*
+
+https://www.tutorialspoint.com/combine-array-of-objects-in-javascript	
+	https://www.tutorialspoint.com/update-array-of-objects-with-javascript
+	
+	Ashok - UI developer L1
+
+	*/
+</script>
+</body>
+</html>

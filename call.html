@@ -1,0 +1,159 @@
+<html>
+<head>
+<title>Promises In javascript</title>
+</head>
+<body>
+
+<div id="data"></div>
+<script>
+
+
+arr = [1,2,3,4,5];
+v = arr.reduce((curr,index) =>  curr+ index,0 )
+console.log(v)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function sum (arr){
+	result = [arr[0]]
+	for(i=0; i<arr.length-1; i++){
+		result.push(arr[i] + arr[i+1])
+	}
+	return result
+}
+console.log(sum([1,2,4,5,6]))
+
+function removeDuplicateArray(arr){
+	data = []
+	for(i=0; i<arr.length; i++){
+		if(arr.indexOf(arr[i]) == i){
+			data.push(arr[i])
+		}
+	}
+	return data
+}
+
+dup=removeDuplicateArray([1,1,2,4,2,"Ashok",5,6,"Ashok"])
+console.log(dup)
+
+function sumtwo(arr,sum){
+	data = []
+	for(i=0; i<arr.length; i++){
+	for(j=0; j<arr.length; j++){
+		if(arr[i] + arr[j] == sum){
+			data.push(arr[i] + arr[i+1])
+			}
+		}
+	}
+	return data
+}
+sumtwo([1,2,4,5,6],5)
+
+
+
+
+ let scores = [1, 2, 3,4,5,6,7,8,9,10,11,12,132,0,5,3];
+	scores.splice(5, 1)
+	s = scores.splice(10, 0,"Ashok"); 
+	console.log(scores,s);
+var sliceArray = [1,2,3,4,5,6,7,8,9,10,]
+	v = sliceArray.slice(0, 5);
+	console.log(sliceArray, v)
+	
+	
+arr = [1,4,5,2,6,37,1,0] //[0,1,1,4,5,6,37]
+	function returnArray(arr){
+			temp = []
+			for(i=0; i<arr.length; i++){
+				for(j=0; j<arr.length; j++){
+					if(arr[j-1] >  arr[j]){
+						temp = arr[j-1];
+						arr[j-1] = arr[j]
+						arr[j] = temp;
+					}
+				}
+			}
+		return console.log(arr)
+}
+returnArray(arr)
+ each = [1,2,3,4,5]
+data = each.map(function(val,index){
+	return val * val
+}).reduce((acc , curr)=> acc + curr)
+console.log(data)
+	
+	
+	
+ var employees=[
+	{name:"George", age:32, retiredate:"March 12, 2014"},
+	{name:"Edward", age:17, retiredate:"June 2, 2023"},
+	{name:"Christine", age:58, retiredate:"December 20, 2036"},
+	{name:"Sarah", age:62, retiredate:"April 30, 2020"}
+]
+
+ const sortData = (property) => {
+	return function(a,b){
+		if(a[property]>b[property]){
+			return 1
+			}else{
+			return -1
+		}
+	}
+ }
+ sorting = employees.sort(sortData("age"))
+ console.log(sorting)
+	
+	
+	/*
+//============== call ==========================
+var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
+function callFunc(greeting, greeting1){
+	return `${greeting} ${this.firstName} ${this.lastName} ${greeting1}`
+
+}
+callF = callFunc.call(employee2, "Hello", "how are you")
+//console.log(callF)
+
+//============== call ==========================
+
+employeebind = callFunc.bind(employee2);
+employeebind( "Hello", "how are you")
+
+console.log(employeebind( "Hello", "how are you"));
+
+
+let arrayIntegers = [1, 2, 3, 4, 5]
+slice = arrayIntegers.slice(0,2)//12
+slice1 = arrayIntegers.slice(2,3)//3
+slice1 = arrayIntegers.slice(4)//5
+const multiArgFunction = (a, b, c) => a + b + c;
+const curryUnaryFunction = a => b => c => a + b + c;
+
+console.log(curryUnaryFunction(1)(2)(4)(6))
+*/
+</script>
+</body>
+</html>

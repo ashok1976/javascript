@@ -1,0 +1,192 @@
+<html>
+<head>
+	<title>Time</title>
+
+</head>
+<body>
+<script>
+
+
+ function Counter(i){
+		var current =  i;
+		function displayName(){
+		return current++
+			//return console.log(current++)
+		}
+		return displayName
+	}
+	var myContor = Counter(1);
+	myContor(); // 1
+	myContor(); // 2
+	myContor(); // 3
+
+	// new closure - new outer scope - new contor variable
+	var myOtherContor = Counter(10);
+	myOtherContor(); // 10 
+	myOtherContor(); // 11
+
+	// myContor was not affected 
+	myContor(); // 4
+
+	/*
+Closure =>
+ 1. Closure are nested function which has access to the outer scope. 
+ 2. The outer function is returned, by keeping a reference to the inner function. we prevent the outer scope to be destroyed.
+ 3. Every call of the outer function creates a new closure.
+ 4. Every call of the closure interacts with the same outer scope – which is persistent
+	
+	
+	*/
+	
+	 var index = {};
+	 var b = {key:1}
+		c = {key:2}
+		index[b] = 20;
+		index[c] = 22
+		console.log(index[b], index[c])
+	/*
+	for(i=0; i<5; i++){
+		var btn = document.createElement('button')
+		btn.appendChild(document.createTextNode('button'+ i))
+		btn.addEventListener("click", (function(i){
+			return function(){console.log(i)}
+		})(i))
+		document.body.appendChild(btn)
+		
+		
+	}
+	*/
+	
+	
+	/*
+	
+	function len(){
+		if(arguments.length == 2 ){n
+			function  a(x){
+				return function(y){
+					return x + y
+				}
+			}
+		}else{
+		console.log('22')
+
+		}
+	}
+	//len(2)(1)
+	
+	
+	setTimeout(()=>{
+	for(let i=0; i<4; i++){
+		console.log("i : ", i);
+	}
+},1000);
+for(let i=0; i<4; i++){
+	setTimeout(()=>{
+		console.log("i : ", i);
+	},3000);
+}
+
+	*/
+	
+	function Person(name, age, salary) {
+			  this.name = name;
+			  this.age = age;
+			  this.salary = salary;
+			  this.incrementSalary = function (byValue) {
+				this.salary = this.salary + byValue;
+			  };
+		}
+	
+	function Employee(company){
+		this.company = company;
+	}
+	Employee.prototype = new Person('Ashok',30,30000);
+	emp = new Person('google')
+//	console.log(emp.incrementSalary())
+	/*
+var author = {
+    firstName: "Chris",
+    lastName: "Pietschmann",
+    favoriteNumber: 2063,
+    getFullName: function () {
+        return this.mfirstName + " " + this.lastName;
+    }
+};
+
+// call the getFullName method on the object
+var fullName = author.getFullName();
+console.log(fullName)
+// return value is "Chris Pietschmann";
+fullNames = author.getFullName.call(author)
+console.log(fullNames)
+
+function sum(a, b){
+	return a + b
+}
+sumObj = sum.apply(this,[1,5])
+console.log(sumObj)
+
+
+	function Emp(id, name){
+		this.id = id;
+		this.name = name;
+		
+	}
+function employees(id, name){
+		Emp.call(this, id, name)
+}
+
+e = new employees(100,'ashok');
+console.log(e.name)
+
+		
+function add(a,b){
+	return a+b
+}
+add(1,2,3,5)//33
+add(1)NAN
+add("1")//1undefined
+
+*/
+
+for(i=0; i<5; i++){
+	console.log(i)
+}
+
+
+obj = {counter:0}
+
+function Person(name) {
+    this.name = name
+}
+Person.prototype.getName = function(){
+	return this.name
+}
+person = new Person('Ashok ku')
+console.log(person.getName())
+
+
+	myObj = new Person('India') // myObj is a object
+function addMyData (){
+	Person.call(this,name)
+}	
+addMyData.prototype = new Person();
+
+	
+addMyData.prototype.fullNameMethod = function(){
+	return this.name
+}	
+addMyData.fullNameMethod()	
+// 
+//Person.prototype, and Object.protoype is called the prototype chain.
+
+
+
+
+		
+		
+		</script>
+
+</body>
+
+</html>
