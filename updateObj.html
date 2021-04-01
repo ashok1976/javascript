@@ -7,6 +7,46 @@
 <div id="length"></div>
 <div id="result"></div>
 <script>
+const arr12 = [{
+   name: 'A',
+   idNo: 1,
+   marks: {
+      math: 98,
+      sci: 97,
+      eng: 89
+   }
+},
+{
+   name: 'B',
+   idNo: 2,
+   marks: {
+      math: 88,
+      sci: 87,
+      eng: 79
+   }
+},
+{
+   name: 'C',
+   idNo: 3,
+   marks: {
+      math: 87,
+      sci: 98,
+      eng: 91
+   }
+}];
+
+const combineMarks  = (arr=[]) =>{
+ res = [];
+ res = arr.reduce((acc,val)=>{
+ Object.keys(val).forEach(el => {
+ console.log(val)
+	})
+ },{})
+ return res
+ 
+}
+const v =combineMarks(arr12)
+console.log(v)
 const ar = [4,5,6,7,8]
 function addArray(arr){
 		results = arr[0]
